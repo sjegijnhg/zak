@@ -71,7 +71,6 @@ form {
             &::after {
                 content: "";
                 background: url('../img/arrow.svg');
-                display: block;
                 width: 8px;
                 height: 13px;
                 left: 0;
@@ -81,3 +80,24 @@ form {
     }
 }
 
+// -------------------------------------
+
+@media (max-width: 430px) {
+    .form__pay-item{
+        .form__pay-link{
+            &::after {
+                display: none;
+            }
+            span{
+                svg{
+                    height: 31px;
+                    width: 21px;
+                }
+                span{
+                    font-size: 14px;
+                }
+
+            }
+        }
+    }
+}

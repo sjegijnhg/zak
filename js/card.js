@@ -1,3 +1,15 @@
+let card = document.querySelector('.pay__card');
+let btn = document.querySelector('.form__button');
+let out = document.querySelector('.message');
+let cvv = document.querySelector('.cvv')
+let date = document.querySelector('.date')
+let email = document.querySelector('.email')
+let lables = document.querySelectorAll('.label-float label')
+let master = document.querySelector('.form__card-info .master')
+let visa = document.querySelector('.form__card-info .visa')
+let mir = document.querySelector('.form__card-info .mir')
+
+
 const validCreditcard = cardnumb => {
     const ccErrors = [];
     ccErrors[0] = "Неизвестный тип карты";
@@ -54,70 +66,11 @@ const validCreditcard = cardnumb => {
         prefixes: "51,52,53,54,55",
         checkdigit: true
     };
+    
     cards[2] = {
-        name: "DinersClub",
-        length: "14,16",
-        prefixes: "36,38,54,55",
-        checkdigit: true
-    };
-    cards[3] = {
-        name: "CarteBlanche",
-        length: "14",
-        prefixes: "300,301,302,303,304,305",
-        checkdigit: true
-    };
-    cards[4] = {
-        name: "AmEx",
-        length: "15",
-        prefixes: "34,37",
-        checkdigit: true
-    };
-    cards[5] = {
-        name: "Discover",
+        name: "Mir",
         length: "16",
-        prefixes: "6011,622,64,65",
-        checkdigit: true
-    };
-    cards[6] = {
-        name: "JCB",
-        length: "16",
-        prefixes: "35",
-        checkdigit: true
-    };
-    cards[7] = {
-        name: "enRoute",
-        length: "15",
-        prefixes: "2014,2149",
-        checkdigit: true
-    };
-    cards[8] = {
-        name: "Solo",
-        length: "16,18,19",
-        prefixes: "6334,6767",
-        checkdigit: true
-    };
-    cards[9] = {
-        name: "Switch",
-        length: "16,18,19",
-        prefixes: "4903,4905,4911,4936,564182,633110,6333,6759",
-        checkdigit: true
-    };
-    cards[10] = {
-        name: "Maestro",
-        length: "12,13,14,15,16,18,19",
-        prefixes: "5018,5020,5038,6304,6759,6761,6762,6763",
-        checkdigit: true
-    };
-    cards[11] = {
-        name: "VisaElectron",
-        length: "16",
-        prefixes: "4026,417500,4508,4844,4913,4917",
-        checkdigit: true
-    };
-    cards[12] = {
-        name: "LaserCard",
-        length: "16,17,18,19",
-        prefixes: "6304,6706,6771,6709",
+        prefixes: "2200",
         checkdigit: true
     };
 
@@ -174,21 +127,36 @@ const validCreditcard = cardnumb => {
     return response(true, null, cardCompany);
 }
 
-let card = document.querySelector('.pay__card');
-let btn = document.querySelector('.form__button');
-let out = document.querySelector('.message');
-let cvv = document.querySelector('.cvv')
-let date = document.querySelector('.date')
-let email = document.querySelector('.email')
-let lables = document.querySelectorAll('.label-float label')
-let master = document.querySelector('.form__card-info svg')
 
-card.input = function() {
-    master.style.display = 'block';
+card.onchange = function() {
+    if(validCreditcard(card.value).type == 'MasterCard'){
+        master.style.display = 'block';
+        visa.style.display = 'none';
+        mir.style.display = 'none';
+    }
+    else if (validCreditcard(card.value).type == 'Visa'){
+        master.style.display = 'none';
+        visa.style.display = 'block';
+        mir.style.display = 'none';
+    }
+    else if (validCreditcard(card.value).type == 'Mir'){
+        master.style.display = 'none';
+        visa.style.display = 'none';
+        mir.style.display = 'block';
+    }
+    else{
+        master.style.display = 'none';
+        visa.style.display = 'none';
+        mir.style.display = 'none';
+    }
 };
 
 
 btn.onclick = function (){
+    console.log(validCreditcard(card.value).type);
+    if(validCreditcard(card.value).type == 'MasterCard'){
+        master.style.display = 'block';
+    }
     if(validCreditcard(card.value).message !== null){
         console.log(validCreditcard(card.value));
         out.innerHTML = validCreditcard(card.value).message;
