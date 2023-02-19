@@ -1,0 +1,102 @@
+@import "reset";
+@import "pages/mainform";
+@import "pages/card";
+
+html {
+    height: 100%;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    body {
+        height: 100%;
+    }
+}
+
+.wrapper {
+    height: 100%;
+    .container {
+        height: 100%;
+        max-width: 450px;
+        margin: auto;
+    }
+    .form__inner{
+        margin: auto;
+        position: relative;
+        top: 50%; 
+        transform: translateY(-60%);
+    }
+}
+
+.select{
+    width: 210px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 35px;
+    background: #F2F7FF;
+    border-radius: 15px;
+    font-size: 24px;
+    color: #0066FF;
+    z-index: 100;
+    &--active{
+        border-radius: 15px 15px 0 0;
+        .select__header{
+            border-radius: 15px 15px 0 0;
+            margin: 0;
+            .select__icon{
+                transition: all .2s;
+                transform: rotate(180deg);
+            }
+        }
+        .select__body {
+            display: block;
+            background: #F2F7FF;
+            border-radius: 0 0 15px 15px;
+        }
+    }
+    &__header{
+        display: flex;
+        cursor: pointer;
+        max-width: 210px;
+        align-self: center;
+        background: #F2F7FF;
+        border-radius: 15px;
+        padding: 14px 26px;
+        justify-content: space-between;
+    }
+    &__current{
+        font-size: 18;
+        line-height: 24px;
+        padding: 8px;
+    }
+    &__icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        text-align: center;
+        width: 40px;
+        flex-shrink: 0;
+        transition: all .2s;
+    }
+    &__body {
+        border-top: none;
+        position: absolute;
+        display: none;
+        left: 0;
+        right: 0;
+        top: 100%;
+        font-size: 24px;
+        z-index: 1000;
+    }
+    &__item{
+        line-height: 24px;
+        padding: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 8px;
+        &:hover{
+            background-color: #0066FF;
+            color: #fff;
+        }
+    }
+}
+
