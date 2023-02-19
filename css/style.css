@@ -505,3 +505,23 @@ html body {
   background-color: #0066FF;
   color: #fff;
 }
+
+.form__back {
+  padding-left: 10px;
+  position: absolute;
+  top: 117px;
+  left: -19px;
+}
+.form__back-link {
+  background: #fff;
+  border-radius: 50%;
+  padding: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3490196078);
+          box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3490196078);
+}

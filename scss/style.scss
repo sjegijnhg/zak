@@ -100,3 +100,19 @@ html {
         }
     }
 }
+
+
+.form__back{
+    padding-left: 10px;
+    position: absolute;
+    top: 117px;
+    left: -19px;
+    &-link{
+        background: #fff;
+        border-radius: 50%;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 0 5px 0px #00000059;
+    }
+}
