@@ -181,10 +181,16 @@ let cvv = document.querySelector('.cvv')
 let date = document.querySelector('.date')
 let email = document.querySelector('.email')
 let lables = document.querySelectorAll('.label-float label')
+let master = document.querySelector('.form__card-info svg')
+
+card.input = function() {
+    master.style.display = 'block';
+};
+
 
 btn.onclick = function (){
     if(validCreditcard(card.value).message !== null){
-        // console.log(validCreditcard(card.value));
+        console.log(validCreditcard(card.value));
         out.innerHTML = validCreditcard(card.value).message;
         out.classList.add('message--active')
         card.style.borderColor = 'red';
@@ -227,6 +233,8 @@ btn.onclick = function (){
         }
     }
     else{
+        console.log(validCreditcard(card.value));
+        out.innerHTML= ''
         out.classList.remove('message--active')
         card.style.borderColor = '#E2E2E2';
         date.style.borderColor = '#E2E2E2';

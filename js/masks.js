@@ -1,6 +1,6 @@
-$('.mask__date').mask('99/99');
-$('.mask__cvv').mask('999');
-$('.mask__card').mask('9999999999999999');
+$('.date').mask('99/99');
+$('.cvv').mask('999');
+$('.card').mask('9999999999999999');
 
 
 // document.addEventListener('DOMContentLoaded', () => {
